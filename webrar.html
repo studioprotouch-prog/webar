@@ -1,0 +1,227 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2575.7">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 12.0px 0.0px; font: 12.0px Times; -webkit-text-stroke: #000000}
+    p.p2 {margin: 0.0px 0.0px 12.0px 0.0px; font: 12.0px Times; -webkit-text-stroke: #000000; min-height: 14.0px}
+    span.s1 {font-kerning: none}
+  </style>
+</head>
+<body>
+<p class="p1"><span class="s1">&lt;!DOCTYPE html&gt;</span></p>
+<p class="p1"><span class="s1">&lt;html lang="tr"&gt;</span></p>
+<p class="p1"><span class="s1">&lt;head&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;meta charset="utf-8" /&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;title&gt;Takı WebAR Deneme — Yüzük/Kolye&lt;/title&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" /&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;!-- model-viewer (Google) — webXR / Scene Viewer / Quick Look desteği --&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;script type="module" src="https://unpkg.com/@google/model-viewer@4.0.0/dist/model-viewer.min.js"&gt;&lt;/script&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;style&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>:root { --bg:#0f1115; --panel:#151924; --txt:#e8ebf2; --muted:#a7b0c3; --accent:#ff3b30; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>html,body{height:100%;margin:0;background:var(--bg);color:var(--txt);font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>header{padding:14px 16px;display:flex;align-items:center;gap:10px;border-bottom:1px solid #222837}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>header h1{margin:0;font-size:16px;font-weight:600;letter-spacing:.2px}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.wrap{display:grid;grid-template-rows:auto 1fr auto;min-height:calc(100% - 0px)}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>model-viewer{width:100%;height:65vh;background:#0b0d12}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.panel{background:var(--panel);padding:12px 14px;border-top:1px solid #222837;display:flex;flex-wrap:wrap;gap:10px;align-items:center}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.group{display:flex;gap:8px;align-items:center;flex-wrap:wrap}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.group label{font-size:12px;color:var(--muted)}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>button,select,input[type="range"]{</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>appearance:none;border:1px solid #2a3145;background:#1a2030;color:var(--txt);border-radius:8px;padding:8px 10px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>font-size:13px</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>button.primary{background:#1f2536;border-color:#36405a}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>button.accent{background:var(--accent);border-color:#ee342a;color:#fff}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>button:disabled{opacity:.6}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.hotspot-note{</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>position:absolute;padding:6px 8px;background:rgba(0,0,0,.55);color:#fff;border-radius:6px;font-size:12px;backdrop-filter:saturate(140%) blur(6px)</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.note{position:fixed;left:50%;bottom:12px;transform:translateX(-50%);font-size:12px;color:var(--muted)}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.tip{font-size:11px;color:var(--muted);margin-left:auto}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.toolbar{padding:10px 14px;display:flex;gap:8px;align-items:center;justify-content:space-between}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>a{color:#8ab4ff;text-decoration:none}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/style&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/head&gt;</span></p>
+<p class="p1"><span class="s1">&lt;body&gt;</span></p>
+<p class="p1"><span class="s1">&lt;div class="wrap"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;header&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;h1&gt;WebAR Takı Deneme&lt;/h1&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;span class="tip"&gt;iOS’ta Quick Look, Android’te Scene Viewer, uygun cihazlarda WebXR&lt;/span&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/header&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;!-- MODEL --&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;model-viewer id="viewer"</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>src="assets/ring.glb"</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>ios-src="assets/ring.usdz"</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>alt="Altın yüzük AR denemesi"</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>ar ar-modes="webxr scene-viewer quick-look"</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>ar-placement="floor"</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>ar-scale="fixed"</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>touch-action="pan-y"</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>camera-controls</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>auto-rotate</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>shadow-intensity="1"</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>exposure="1.0"</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>environment-image="neutral"</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>poster="assets/poster.jpg"</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>tone-mapping="aces"</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>disable-tap</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;!-- Hotspot örneği: taş bilgisi --&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;button class="hotspot-note" slot="hotspot-1" data-position="0.02 0.02 0.02" data-normal="0 1 0"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>Taş: Zirkon — 3 mm</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/model-viewer&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;!-- KONTROLLER --&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;div class="panel"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="group"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;label&gt;Malzeme:&lt;/label&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;button class="primary" data-variant="Gold Soft"&gt;Soft Gold&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;button class="primary" data-variant="Rose Gold"&gt;Rose Gold&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;button class="primary" data-variant="Silver"&gt;Silver&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="group"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;label&gt;Işık/Exposure&lt;/label&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;input id="exp" type="range" min="0.4" max="1.8" step="0.05" value="1.0" /&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="group"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;label&gt;Ölçek&lt;/label&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;select id="scale"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;option value="1"&gt;1.0× (gerçek)&lt;/option&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;option value="0.9"&gt;0.9×&lt;/option&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;option value="1.1"&gt;1.1×&lt;/option&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;option value="1.2"&gt;1.2×&lt;/option&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/select&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="group"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;button id="enterAR" class="accent"&gt;AR ile Yerleştir&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;button id="snapshot"&gt;Görsel Al&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;button id="reset"&gt;Sıfırla&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="group"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;label&gt;Arka plan&lt;/label&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;button class="primary" data-env="neutral"&gt;Nötr&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;button class="primary" data-env="studio"&gt;Stüdyo&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;button class="primary" data-env="off"&gt;Kapalı&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;div class="toolbar"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;small&gt;Dosyalarınızı &lt;code&gt;assets/ring.glb&lt;/code&gt; ve &lt;code&gt;assets/ring.usdz&lt;/code&gt; olarak koyun. GLB’nizde</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;code&gt;KHR_materials_variants&lt;/code&gt; varsa “Malzeme” butonları aktif çalışır.&lt;/small&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;small&gt;&lt;a href="https://modelviewer.dev/" target="_blank" rel="noopener"&gt;model-viewer&lt;/a&gt;&lt;/small&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;div class="note"&gt;İpucu: AR’da ürünü zemine dokunarak yerleştirin. İyi ışık her zaman daha gerçekçi sonuç verir.&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">&lt;script&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const mv = document.getElementById('viewer');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const exp = document.getElementById('exp');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const scaleSel = document.getElementById('scale');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const enterAR = document.getElementById('enterAR');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const snapshotBtn = document.getElementById('snapshot');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const resetBtn = document.getElementById('reset');</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>// 1) Variant (Gold / Rose / Silver)</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>document.querySelectorAll('[data-variant]').forEach(btn=&gt;{</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>btn.addEventListener('click', async ()=&gt;{</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>const name = btn.getAttribute('data-variant');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>try {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>// KHR_materials_variants destekleniyorsa:</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>await mv.updateComplete;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>const variants = mv.availableVariants || [];</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>if (variants.length &amp;&amp; variants.includes(name)) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>mv.variantName = name;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>} else {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>// Varyant yoksa, kullanıcıya bilgi ver</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>alert('GLB içinde "'+name+'" varyantı yok. (KHR_materials_variants) Ekleyebilir veya ayrı GLB kullanabilirsiniz.');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>} catch(e){ console.warn(e); }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>});</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>});</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>// 2) Exposure (ışık)</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>exp.addEventListener('input', e=&gt;{</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>mv.exposure = parseFloat(e.target.value);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>});</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>// 3) Ölçek</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>scaleSel.addEventListener('change', e=&gt;{</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const s = parseFloat(e.target.value);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>mv.scale = `${s} ${s} ${s}`;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>});</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>// 4) AR başlat</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>enterAR.addEventListener('click', ()=&gt;{</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>if (mv.canActivateAR) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>mv.activateAR();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>} else {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>alert('Bu cihaz/tarayıcı WebAR için uygun değil gibi görünüyor. iOS: Quick Look, Android: Scene Viewer, Uyumlu cihazlarda WebXR çalışır.');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>});</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>// 5) Ortam / Environment</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const envMapFor = (key)=&gt;{</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>// "neutral" model-viewer’ın yerleşik HDR’ı; diğerleri için kendi HDR/EXR dosyanızı koyun.</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>if (key==='neutral') return 'neutral';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>if (key==='studio')<span class="Apple-converted-space">  </span>return 'assets/studio.hdr'; <span class="Apple-converted-space">  </span>// kendi HDR dosyanız</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>if (key==='off') <span class="Apple-converted-space">    </span>return null;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>return 'neutral';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>};</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>document.querySelectorAll('[data-env]').forEach(btn=&gt;{</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>btn.addEventListener('click', ()=&gt;{</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>const env = btn.getAttribute('data-env');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>const map = envMapFor(env);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>if (map) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>mv.environmentImage = map;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>mv.shadowIntensity = 1.0;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>} else {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>mv.environmentImage = null;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>mv.shadowIntensity = 0.0;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>});</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>});</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>// 6) Snapshot — PNG indir</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>snapshotBtn.addEventListener('click', async ()=&gt;{</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>try{</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>await mv.updateComplete;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>const blob = await mv.toBlob({mimeType:'image/png'});</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>const url = URL.createObjectURL(blob);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>const a = document.createElement('a');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>a.href = url; a.download = 'webar-capture.png'; a.click();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>URL.revokeObjectURL(url);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}catch(e){</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>alert('Görsel alınamadı. Tarayıcı izinlerini kontrol edin.');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>});</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>// 7) Sıfırla</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>resetBtn.addEventListener('click', ()=&gt;{</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>mv.cameraOrbit = '0deg 75deg 105%';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>mv.fieldOfView = '30deg';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>mv.exposure = 1.0;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>mv.shadowIntensity = 1.0;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>mv.autoRotate = true;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>mv.variantName = null;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>mv.environmentImage = 'neutral';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>exp.value = 1.0;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>scaleSel.value = '1';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>mv.scale = '1 1 1';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>});</span></p>
+<p class="p1"><span class="s1">&lt;/script&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/body&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/html&gt;</span></p>
+</body>
+</html>
